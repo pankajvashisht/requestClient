@@ -1,0 +1,32 @@
+{
+	"name": "requestclient",
+	"version": "1.0.0",
+	"description": "Promise based HTTP client for the browser based on the fetch api and XMLHttpRequest ",
+	"main": "index.js",
+	"directories": {
+		"example": "examples",
+		"lib": "lib",
+		"test": "test"
+	},
+	"scripts": {
+		"test": "grunt test && bundlesize"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/pankajvashisht-ucreate/requestClient.git"
+	},
+	"keywords": [
+		"http",
+		"ajax",
+		"promise",
+		"xhr",
+		"React",
+		"Vue"
+	],
+	"author": "pankaj vashisht",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/pankajvashisht-ucreate/requestClient/issues"
+	},
+	"homepage": "https://github.com/pankajvashisht-ucreate/requestClient#readme"
+}

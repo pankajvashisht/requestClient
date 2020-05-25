@@ -1,0 +1,13 @@
+<script>
+	browerRequest({
+		baseURL: 'https://api.github.com/',
+		urls: 'repos/javascript-tutorial/en.javascript.info/commits',
+		method: 'get',
+	})
+		.then((data) => {
+			console.log(data);
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+</script>
