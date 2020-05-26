@@ -1,9 +1,10 @@
 const requestClient = require('../index');
 requestClient.defaultConfig({
-	baseURL: 'http://3.12.247.224/apis/v1/',
+	baseURL: 'http://3.22.163.113/apis/v1/',
+	headers: {},
 });
 const first = (config, next) => {
-	console.log(1, config);
+	console.log(1);
 	next();
 };
 const second = (config, next) => {
@@ -16,6 +17,9 @@ requestClient.use([first, second]);
 requestClient.middleware.request.use(
 	function (config) {
 		console.log(config);
+		config.headers['authorization_key'] =
+			'c5ae472377553a6923cadbbdf5e642bdfb6ee245';
+		console.log(config);
 		return config;
 	},
 	function (error) {
@@ -23,9 +27,9 @@ requestClient.middleware.request.use(
 	}
 );
 requestClient
-	.get('/app-information')
-	.then((data) => {
-		//console.log(data);
+	.post('/add-goal', { goal_id: 4 })
+	.then(({ status }) => {
+		console.log(status);
 	})
 	.catch((response) => {
 		console.log(response);
