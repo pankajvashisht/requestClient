@@ -3,6 +3,15 @@ requestClient.defaultConfig({
 	baseURL: 'http://3.22.163.113/apis/v1/',
 	headers: {},
 });
+const axio = requestClient.createInstance({
+	baseURL: 'http://pomurski-taborniki.eu/nature/apis/',
+	headers: {},
+	rollbarToken: '',
+	rollbarConfig: {
+		status: [400, 500],
+	},
+});
+console.log(axio);
 const first = (config, next) => {
 	console.log(1);
 	next();
@@ -12,7 +21,7 @@ const second = (config, next) => {
 	next();
 };
 
-requestClient.use([first, second]);
+axio.use([first, second]);
 
 requestClient.middleware.request.use(
 	function (config) {
@@ -26,11 +35,12 @@ requestClient.middleware.request.use(
 		Promise.reject(error);
 	}
 );
-requestClient
-	.post('/add-goal', { goal_id: 4 })
-	.then(({ status }) => {
-		console.log(status);
-	})
-	.catch((response) => {
-		console.log(response);
-	});
+console.log(axio.getConfig);
+// axio
+// 	.post('/forgot_password', { goal_ids: 4 })
+// 	.then(({ status }) => {
+// 		console.log(status);
+// 	})
+// 	.catch(({ response }) => {
+// 		//console.log(response);
+// 	});
