@@ -1,13 +1,21 @@
 const requestClient = require('../index');
-requestClient.defaultConfig({
-	baseURL: 'http://3.22.163.113/apis/v1/',
-	headers: {},
-	errorExpand: true,
-});
+requestClient
+	.get('https://api.github.com/users/mzabriskie')
+	.then((data) => {
+		console.log(data);
+	})
+	.catch((err) => {
+		console.log(err);
+	});
+// requestClient.defaultConfig({
+// 	baseURL: 'http://3.22.163.113/apis/v1/',
+// 	headers: {},
+// 	errorExpand: true,
+// });
 const axios = requestClient.createInstance({
 	baseURL: 'http://pomurski-taborniki.eu/nature/apis/',
 	headers: {},
-	rollbarToken: 'bfca8b19cee44b6cb854bcb4cab26e97',
+	rollbarToken: '',
 	rollbarConfig: {
 		status: [403, 500],
 	},
@@ -33,11 +41,11 @@ requestClient.middleware.request.use(
 		Promise.reject(error);
 	}
 );
-axios
-	.post('/forgot_password', { email: 'pankaj@gmail.com' })
-	.then(({ status }) => {
-		console.log(status);
-	})
-	.catch(({ response }) => {
-		console.log(response);
-	});
+// axios
+// 	.post('/forgot_password', { email: 'pankaj@gmail.com' })
+// 	.then(({ status }) => {
+// 		console.log(status);
+// 	})
+// 	.catch(({ response }) => {
+// 		console.log(response);
+// 	});

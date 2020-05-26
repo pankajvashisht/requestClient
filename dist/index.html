@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Production</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+	</head>
+
+	<body>
+		<script src="requestClient.js"></script>
+	</body>
+</html>
+<script>
+	window.addEventListener('load', function () {
+		alert();
+		requestClient
+			.get('https://api.github.com/users/mzabriskie')
+			.then((data) => {
+				console.log(data);
+			})
+			.catch((err) => {
+				console.log(data);
+			});
+	});
+</script>

@@ -1,0 +1,14 @@
+<script src="../dist/requestClient.js"></script>
+<script>
+	window.addEventListener('load', function () {
+		alert();
+		requestClient
+			.get('https://api.github.com/users/mzabriskie')
+			.then((data) => {
+				console.log(data);
+			})
+			.catch((err) => {
+				console.log(data);
+			});
+	});
+</script>
