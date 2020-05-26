@@ -28,5 +28,8 @@
 	"bugs": {
 		"url": "https://github.com/pankajvashisht-ucreate/requestClient/issues"
 	},
-	"homepage": "https://github.com/pankajvashisht-ucreate/requestClient#readme"
+	"homepage": "https://github.com/pankajvashisht-ucreate/requestClient#readme",
+	"dependencies": {
+		"rollbar": "^2.16.2"
+	}
 }
