@@ -1,5 +1,5 @@
 {
-	"name": "http-requestclient",
+	"name": "@pankajvashisht/requestclient",
 	"version": "1.0.0",
 	"description": "Promise based HTTP client for the browser based on the fetch api and XMLHttpRequest ",
 	"main": "index.js",
