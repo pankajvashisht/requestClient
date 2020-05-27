@@ -30,19 +30,19 @@ Promise based HTTP client for the browser and node.js
 Using npm:
 
 ```bash
-$ npm install requestClient
+$ npm install http-requestclient
 ```
 
 Using bower:
 
 ```bash
-$ bower install requestClient
+$ bower install http-requestclient
 ```
 
 Using yarn:
 
 ```bash
-$ yarn add requestClient
+$ yarn add http-requestclient
 ```
 
 ## Example
