@@ -1,6 +1,6 @@
 # codsi-client
 
-[![npm version](https://badge.fury.io/js/%40pankajvashisht%2Frequestclient.svg)](https://badge.fury.io/js/%40pankajvashisht%2Frequestclient)
+[![npm version](https://badge.fury.io/js/codsi-client.svg)](https://badge.fury.io/js/codsi-client)
 
 Promise based HTTP client for the browser and node.js
 
