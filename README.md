@@ -30,19 +30,19 @@ Promise based HTTP client for the browser and node.js
 Using npm:
 
 ```bash
-$ npm install requestClient
+$ npm install codsi
 ```
 
 Using bower:
 
 ```bash
-$ bower install requestClient
+$ bower install codsi
 ```
 
 Using yarn:
 
 ```bash
-$ yarn add requestClient
+$ yarn add codsi
 ```
 
 ## Example
@@ -50,7 +50,7 @@ $ yarn add requestClient
 ### nodejs usage
 
 ```js
-const requestClient = require('requestClient');
+const requestClient = require('codsi');
 
 requestClient
 	.get('/url')
