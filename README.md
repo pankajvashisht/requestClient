@@ -1,4 +1,4 @@
-# requestClient
+# codsi
 
 [![npm version](https://badge.fury.io/js/%40pankajvashisht%2Frequestclient.svg)](https://badge.fury.io/js/%40pankajvashisht%2Frequestclient)
 
