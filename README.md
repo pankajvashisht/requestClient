@@ -28,19 +28,19 @@ Promise based HTTP client for the browser and node.js
 Using npm:
 
 ```bash
-$ npm install axios
+$ npm install requestClient
 ```
 
 Using bower:
 
 ```bash
-$ bower install axios
+$ bower install requestClient
 ```
 
 Using yarn:
 
 ```bash
-$ yarn add axios
+$ yarn add requestClient
 ```
 
 ## Example
