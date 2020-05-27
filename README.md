@@ -1,6 +1,6 @@
 # requestClient
 
-[![npm version]
+[![npm version](https://badge.fury.io/js/%40pankajvashisht%2Frequestclient.svg)](https://badge.fury.io/js/%40pankajvashisht%2Frequestclient)
 
 Promise based HTTP client for the browser and node.js
 
@@ -30,19 +30,19 @@ Promise based HTTP client for the browser and node.js
 Using npm:
 
 ```bash
-$ npm install requestclient
+$ npm install requestClient
 ```
 
 Using bower:
 
 ```bash
-$ bower install requestclient
+$ bower install requestClient
 ```
 
 Using yarn:
 
 ```bash
-$ yarn add requestclient
+$ yarn add requestClient
 ```
 
 ## Example
