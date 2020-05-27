@@ -1,4 +1,4 @@
-# codsi
+# codsi-client
 
 [![npm version](https://badge.fury.io/js/%40pankajvashisht%2Frequestclient.svg)](https://badge.fury.io/js/%40pankajvashisht%2Frequestclient)
 
@@ -30,19 +30,19 @@ Promise based HTTP client for the browser and node.js
 Using npm:
 
 ```bash
-$ npm install codsi
+$ npm install codsi-client
 ```
 
 Using bower:
 
 ```bash
-$ bower install codsi
+$ bower install codsi-client
 ```
 
 Using yarn:
 
 ```bash
-$ yarn add codsi
+$ yarn add codsi-client
 ```
 
 ## Example
@@ -50,7 +50,7 @@ $ yarn add codsi
 ### nodejs usage
 
 ```js
-const requestClient = require('codsi');
+const requestClient = require('codsi-client');
 
 requestClient
 	.get('/url')
