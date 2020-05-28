@@ -1,4 +1,4 @@
-# codsi-client
+# nivedan
 
 [![npm version](https://badge.fury.io/js/codsi-client.svg)](https://badge.fury.io/js/codsi-client)
 
@@ -30,19 +30,19 @@ Promise based HTTP client for the browser and node.js
 Using npm:
 
 ```bash
-$ npm install codsi-client
+$ npm install nivedan
 ```
 
 Using bower:
 
 ```bash
-$ bower install codsi-client
+$ bower install nivedan
 ```
 
 Using yarn:
 
 ```bash
-$ yarn add codsi-client
+$ yarn add nivedan
 ```
 
 ## Example
@@ -50,7 +50,7 @@ $ yarn add codsi-client
 ### nodejs usage
 
 ```js
-const requestClient = require('codsi-client');
+const requestClient = require('nivedan');
 
 requestClient
 	.get('/url')
