@@ -302,11 +302,11 @@ nivedan.get('/user/12345').catch(function (error) {
 });
 ```
 
-Using `toJSON` you get an object with more information about the HTTP error.
+Using `Expend` you get an object with more information about the HTTP error.
 
 ```js
 nivedan.get('/user/12345').catch(function (error) {
-	console.log(error.toJSON());
+	console.log(error.Expend());
 });
 ```
 
