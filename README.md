@@ -232,7 +232,7 @@ nivedan.middleware.request.use(
 	},
 	function (error) {
 		Promise.reject(error);
-	}
+	},
 );
 
 // Response middleware
@@ -242,7 +242,7 @@ const successResponce = (response) => {
 };
 nivedan.middleware.response.use(
 	(response) => successResponce(response),
-	(error) => Promise.reject(error)
+	(error) => Promise.reject(error),
 );
 ```
 
