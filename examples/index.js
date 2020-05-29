@@ -1,5 +1,5 @@
-const requestClient = require('../index');
-// requestClient
+const nivedan = require('../index');
+// nivedan
 // 	.get('https://api.github.com/users/mzabriskie')
 // 	.then((data) => {
 // 		console.log(data);
@@ -7,12 +7,12 @@ const requestClient = require('../index');
 // 	.catch((err) => {
 // 		console.log(err);
 // 	});
-requestClient.defaultConfig({
+nivedan.defaultConfig({
 	baseURL: 'http://3.22.163.113/apis/v1/',
 	headers: {},
 	errorExpand: true,
 });
-const axios = requestClient.createInstance({
+const axios = nivedan.createInstance({
 	baseURL: 'http://pomurski-taborniki.eu/nature/apis/',
 	headers: {},
 	rollbarToken: '',
@@ -33,7 +33,7 @@ const second = (config, next) => {
 
 axios.use([first, second]);
 
-requestClient.middleware.request.use(
+nivedan.middleware.request.use(
 	function (config) {
 		config.headers['authorization_key'] =
 			'c5ae472377553a6923cadbbdf5e642bdfb6ee245';
@@ -56,5 +56,4 @@ axios
 
 axios.on('event', (name) => {
 	console.log(name);
-	// Prints: a b {}
 });

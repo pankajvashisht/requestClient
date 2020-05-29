@@ -50,9 +50,9 @@ $ yarn add nivedan
 ### nodejs usage
 
 ```js
-const requestClient = require('nivedan');
+const nivedan = require('nivedan');
 
-requestClient
+nivedan
 	.get('/url')
 	.then(function (response) {
 		// handle success
@@ -65,7 +65,7 @@ requestClient
 
 // Get request with query parameters
 
-requestClient
+nivedan
 	.get('/url', {
 		params: {
 			key: value,
@@ -85,7 +85,7 @@ requestClient
 
 async const method = () => {
 	try {
-		const response = await requestClient.get('/url');
+		const response = await nivedan.get('/url');
 		console.log(response);
 	} catch (error) {
 		console.error(error);
@@ -93,8 +93,8 @@ async const method = () => {
 }
 
 // handle the multiple request togather. Its similar like promise.all
-requestClient
-	.resolve([requestClient.get('/url'), requestClient.get('/url')])
+nivedan
+	.resolve([nivedan.get('/url'), nivedan.get('/url')])
 	.then(function (response) {
 		console.log(response);
 	})
@@ -102,12 +102,12 @@ requestClient
 		console.log(error);
 	});
 
-// if you want to expand the requestClient.resolve result then use the requestClient.expend
+// if you want to expand the nivedan.resolve result then use the nivedan.expend
 
-requestClient
-	.resolve([requestClient.get('/url'), requestClient.get('/url')])
+nivedan
+	.resolve([nivedan.get('/url'), nivedan.get('/url')])
 	.then(
-		requestClient.expend(function (acct, perms) {
+		nivedan.expend(function (acct, perms) {
 			// Both requests are now complete
 		})
 	);
@@ -117,21 +117,21 @@ requestClient
 
 // you will send array or parameter
 
-##### requestClient.request(config)
+##### nivedan.request(config)
 
-##### requestClient.get(url[, config])
+##### nivedan.get(url[, config])
 
-##### requestClient.delete(url[, config])
+##### nivedan.delete(url[, config])
 
-##### requestClient.head(url[, config])
+##### nivedan.head(url[, config])
 
-##### requestClient.options(url[, config])
+##### nivedan.options(url[, config])
 
-##### requestClient.post(url[, data[, config]])
+##### nivedan.post(url[, data[, config]])
 
-##### requestClient.put(url[, data[, config]])
+##### nivedan.put(url[, data[, config]])
 
-##### requestClient.patch(url[, data[, config]])
+##### nivedan.patch(url[, data[, config]])
 
 ###### NOTE
 
@@ -140,7 +140,7 @@ When using the alias methods `url`, `method`, and `data` properties don't need t
 ```js
 // Set the default comman configuration for all requests
 
-requestClient.defaultConfig({
+nivedan.defaultConfig({
 	baseURL: 'https://something.com/apis/v2',
 	headers: {
 		common: { 'Content-Type': 'application/json' },
@@ -150,7 +150,7 @@ requestClient.defaultConfig({
 
 // config the rollbar error tracking
 
-requestClient.defaultConfig({
+nivedan.defaultConfig({
 	rollbarToken: '',
 	rollbarConfig: {
 		status: [403, 500], // track particular http error code in rollbar otherwise it will track all error code and exception
@@ -180,7 +180,7 @@ requestClient.defaultConfig({
     console.log(error.config);
   });
 
-requestClient.defaultConfig({
+nivedan.defaultConfig({
 	errorExpand: true,
 });
 // after the config you will get
@@ -199,7 +199,7 @@ requestClient.defaultConfig({
 }
 
 // if you want the message key from server side message so just add the
-requestClient.defaultConfig({
+nivedan.defaultConfig({
     errorExpand: true,
     errorMessageKey: 'error_message' // key from server side which sended by the backend developer with message
 });
@@ -225,7 +225,7 @@ You can middleware requests or responses before they are handled by `then` or `c
 ```js
 // Request middleware
 
-requestClient.middleware.request.use(
+nivedan.middleware.request.use(
 	function (config) {
 		config.headers.comman['Authorization'] = 'key';
 		return config;
@@ -240,7 +240,7 @@ const successResponce = (response) => {
 	// do something
 	return response;
 };
-requestClient.middleware.response.use(
+nivedan.middleware.response.use(
 	(response) => successResponce(response),
 	(error) => Promise.reject(error)
 );
@@ -261,17 +261,17 @@ const allTaskDone = (config, next) => {
 	// todo
 	next();
 };
-requestClient.use([checkStatus, allTaskDone]);
+nivedan.use([checkStatus, allTaskDone]);
 ```
 
 > Note: you will not modified the config in the additional middleware.
 
 ## New instance
 
-You can add interceptors to a custom instance of requestClient.
+You can add interceptors to a custom instance of nivedan.
 
 ```js
-const request = requestClient.createInstance({
+const request = nivedan.createInstance({
 	baseURL: '',
 });
 request.middleware.request.use(function () {
@@ -282,7 +282,7 @@ request.middleware.request.use(function () {
 ## Handling Errors
 
 ```js
-requestClient.get('/user/12345').catch(function (error) {
+nivedan.get('/user/12345').catch(function (error) {
 	if (error.response) {
 		// The request was made and the server responded with a status code
 		// that falls out of the range of 2xx
@@ -305,14 +305,25 @@ requestClient.get('/user/12345').catch(function (error) {
 Using `toJSON` you get an object with more information about the HTTP error.
 
 ```js
-requestClient.get('/user/12345').catch(function (error) {
+nivedan.get('/user/12345').catch(function (error) {
 	console.log(error.toJSON());
 });
 ```
 
 ## Using application/x-www-form-urlencoded format
 
-By default, requestClient serializes JavaScript objects to `JSON`. To send data in the `application/x-www-form-urlencoded` format instead, you can use one of the following options.
+By default, nivedan serializes JavaScript objects to `JSON`. To send data in the `application/x-www-form-urlencoded` format instead, you can use one of the following options.
+
+## nivedan emitter
+
+```js
+nivedan.get('/someurl').then(function (data) {
+	nivedan.emit('eventName', data);
+});
+nivedan.on('eventName', (data) => {
+	console.log(data);
+});
+```
 
 ## License
 
