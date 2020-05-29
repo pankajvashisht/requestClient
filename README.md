@@ -317,6 +317,11 @@ By default, nivedan serializes JavaScript objects to `JSON`. To send data in the
 ## nivedan emitter
 
 ```js
+nivedan.emit('eventName', 'something');
+nivedan.on('eventName', (data) => {
+	console.log(data);
+	// output  something
+});
 nivedan.get('/someurl').then(function (data) {
 	nivedan.emit('eventName', data);
 });
