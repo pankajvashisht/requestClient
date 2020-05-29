@@ -47,7 +47,14 @@ axios
 	.post('/forgot_password', { email: 'pankaj@gmail.com' })
 	.then(({ status }) => {
 		console.log(status);
+		axios.emit('event', 'pankaj vashisht');
 	})
 	.catch((response) => {
+		axios.emit('event', 'pankaj vashisht');
 		console.log(response);
 	});
+
+axios.on('event', (name) => {
+	console.log(name);
+	// Prints: a b {}
+});
