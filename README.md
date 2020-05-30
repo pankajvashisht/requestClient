@@ -107,7 +107,7 @@ nivedan
 nivedan
 	.resolve([nivedan.get('/url'), nivedan.get('/url')])
 	.then(
-		nivedan.expend(function (acct, perms) {
+		nivedan.expand(function (acct, perms) {
 			// Both requests are now complete
 		})
 	);
