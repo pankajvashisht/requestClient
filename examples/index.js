@@ -11,6 +11,7 @@ nivedan.defaultConfig({
 	baseURL: 'http://3.22.163.113/apis/v1/',
 	headers: {},
 	errorExpand: true,
+	dataOnly: true,
 });
 const axios = nivedan.createInstance({
 	baseURL: 'http://pomurski-taborniki.eu/nature/apis/',
@@ -33,46 +34,58 @@ const second = (config, next) => {
 	next();
 };
 
-axios.use([first, second]);
+// axios.use([first, second]);
 
-axios.middleware.request.use(
-	function (config) {
-		console.log('i am running first');
-		config.headers['authorization_key'] =
-			'c5ae472377553a6923cadbbdf5e642bdfb6ee245';
-		return config;
-	},
-	function (error) {
-		Promise.reject(error);
-	},
-);
-axios.middleware.response.use(
-	function (response) {
-		return response;
-	},
-	function (error) {
-		return Promise.reject(error);
-	},
-);
-axios
-	.post('/forgot_password', { email: 'pankaj@gmail.com' })
-	.then((data) => {
-		console.log(data);
-		//axios.emit('event', 'pankaj vashisht');
-	})
-	.catch((response) => {
-		//	axios.emit('event', 'pankaj vashisht');
+// axios.middleware.request.use(
+// 	function (config) {
+// 		console.log('i am running first');
+// 		config.headers['authorization_key'] =
+// 			'c5ae472377553a6923cadbbdf5e642bdfb6ee245';
+// 		return config;
+// 	},
+// 	function (error) {
+// 		Promise.reject(error);
+// 	},
+// );
+// axios.middleware.response.use(
+// 	function (response) {
+// 		return response;
+// 	},
+// 	function (error) {
+// 		return Promise.reject(error);
+// 	},
+// );
+// axios
+// 	.post('/forgot_password', { email: 'pankaj@gmail.com' })
+// 	.then((data) => {
+// 		console.log(data);
+// 		//axios.emit('event', 'pankaj vashisht');
+// 	})
+// 	.catch((response) => {
+// 		//	axios.emit('event', 'pankaj vashisht');
+// 	});
+
+// axios
+// 	.get('https://api.github.com/users/pankajvashisht')
+// 	.then((data) => {
+// 		//console.log('dsdsd', data);
+// 	})
+// 	.catch((err) => {
+// 		//console.log(err);
+// 	});
+nivedan
+	.resolve([
+		nivedan.get('https://api.github.com/users/pankajvashisht'),
+		nivedan.get('https://api.github.com/users/pankajvashisht-ucreate'),
+	])
+	.then(
+		nivedan.expand(function (acct, perms) {
+			console.log(perms);
+		}),
+	)
+	.catch((error) => {
+		console.log('error is here', error);
 	});
-
-axios
-	.get('https://api.github.com/users/pankajvashisht')
-	.then((data) => {
-		//console.log('dsdsd', data);
-	})
-	.catch((err) => {
-		//console.log(err);
-	});
-
 axios.on('event', (name) => {
 	console.log(name);
 });
