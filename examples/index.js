@@ -22,6 +22,7 @@ const axios = nivedan.createInstance({
 	errorExpand: true,
 	dataOnly: true,
 	errorMessageKey: 'error_message',
+	allowSuccessStatus: (status) => status < 500,
 });
 const first = (config, next) => {
 	console.log(1);
@@ -37,7 +38,6 @@ axios.use([first, second]);
 axios.middleware.request.use(
 	function (config) {
 		console.log('i am running first');
-		console.log(config);
 		config.headers['authorization_key'] =
 			'c5ae472377553a6923cadbbdf5e642bdfb6ee245';
 		return config;
@@ -56,22 +56,21 @@ axios.middleware.response.use(
 );
 axios
 	.post('/forgot_password', { email: 'pankaj@gmail.com' })
-	.then(({ status }) => {
-		//console.log(status);
-		axios.emit('event', 'pankaj vashisht');
+	.then((data) => {
+		console.log(data);
+		//axios.emit('event', 'pankaj vashisht');
 	})
 	.catch((response) => {
-		axios.emit('event', 'pankaj vashisht');
-		console.log(response);
+		//	axios.emit('event', 'pankaj vashisht');
 	});
 
 axios
 	.get('https://api.github.com/users/pankajvashisht')
 	.then((data) => {
-		console.log('dsdsd', data);
+		//console.log('dsdsd', data);
 	})
 	.catch((err) => {
-		console.log(err);
+		//console.log(err);
 	});
 
 axios.on('event', (name) => {
