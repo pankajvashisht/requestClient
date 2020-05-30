@@ -1,6 +1,6 @@
 {
 	"name": "nivedan",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Promise based HTTP client for the browser based on the fetch api and XMLHttpRequest ",
 	"main": "index.js",
 	"directories": {
@@ -32,13 +32,13 @@
 	},
 	"homepage": "https://github.com/pankajvashisht-ucreate/requestClient#readme",
 	"dependencies": {
-		"clean-webpack-plugin": "^3.0.0",
-		"html-webpack-plugin": "^4.3.0",
-		"rollbar": "^2.16.2",
-		"uglifyjs-webpack-plugin": "^2.2.0",
-		"webpack": "^4.43.0"
+		"rollbar": "^2.16.2"
 	},
 	"devDependencies": {
+		"uglifyjs-webpack-plugin": "^2.2.0",
+		"webpack": "^4.43.0",
+		"clean-webpack-plugin": "^3.0.0",
+		"html-webpack-plugin": "^4.3.0",
 		"webpack-cli": "^3.3.11",
 		"webpack-merge": "^4.2.2"
 	}
