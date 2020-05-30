@@ -138,7 +138,7 @@ nivedan
 When using the alias methods `url`, `method`, and `data` properties don't need to be specified in config.
 
 ```js
-// Set the default comman configuration for all requests
+// Set the default common configuration for all requests
 
 nivedan.defaultConfig({
 	baseURL: 'https://something.com/apis/v2',
@@ -227,7 +227,7 @@ You can middleware requests or responses before they are handled by `then` or `c
 
 nivedan.middleware.request.use(
 	function (config) {
-		config.headers.comman['Authorization'] = 'key';
+		config.headers.common['Authorization'] = 'key';
 		return config;
 	},
 	function (error) {
