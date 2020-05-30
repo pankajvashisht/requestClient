@@ -13,6 +13,10 @@ nivedan.defaultConfig({
 	errorExpand: true,
 	dataOnly: true,
 });
+nivedan.setConfig('dev', {
+	name: 'PankajVashisht',
+	age: '25',
+});
 const axios = nivedan.createInstance({
 	baseURL: 'http://pomurski-taborniki.eu/nature/apis/',
 	headers: {},
@@ -89,3 +93,5 @@ nivedan
 axios.on('event', (name) => {
 	console.log(name);
 });
+
+console.log(nivedan.getConfig('dev'));
