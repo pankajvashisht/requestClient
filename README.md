@@ -330,6 +330,17 @@ nivedan.on('eventName', (data) => {
 });
 ```
 
+## nivedan additional config
+
+```js
+nivedan.setConfig('s3-aws', {
+	bucket: 'something',
+});
+nivedan.getConfig('s3-aws');
+nivedan.removeConfig('s3-aws');
+nivedan.getAllConfig;
+```
+
 ## License
 
 [MIT](LICENSE)
