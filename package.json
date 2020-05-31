@@ -1,6 +1,6 @@
 {
 	"name": "nivedan",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "Promise based HTTP client for the browser based on the fetch api and XMLHttpRequest ",
 	"main": "index.js",
 	"directories": {
