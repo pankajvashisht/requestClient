@@ -79,7 +79,12 @@ const second = (config, next) => {
 // 	});
 nivedan
 	.resolve([
-		nivedan.get('https://api.github.com/users/pankajvashisht'),
+		nivedan.get('https://api.github.com/users/pankajvashisht', {
+			params: {
+				id: '123',
+				name: 'pankaj',
+			},
+		}),
 		nivedan.get('https://api.github.com/users/pankajvashisht-ucreate'),
 	])
 	.then(
