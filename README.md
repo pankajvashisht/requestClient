@@ -158,7 +158,7 @@ nivedan.defaultConfig({
 });
 
 // config the errorExpend
-// without errorExpend you will get the error response like axios
+// without errorExpend you will get the error response regular erros
 
 //The response for a request contains the following information.
 .catch(function (error) {
@@ -174,7 +174,7 @@ nivedan.defaultConfig({
       // http.ClientRequest in node.js
       console.log(error.request);
     } else {
-      // Something happened in setting up the request that triggered an Error
+      // Something happened wrong in setting up the request that triggered an Error
       console.log('Error', error.message);
     }
     console.log(error.config);
@@ -232,17 +232,17 @@ nivedan.middleware.request.use(
 	},
 	function (error) {
 		Promise.reject(error);
-	},
+	}
 );
 
 // Response middleware
-const successResponce = (response) => {
+const successResponse = (response) => {
 	// do something
 	return response;
 };
 nivedan.middleware.response.use(
-	(response) => successResponce(response),
-	(error) => Promise.reject(error),
+	(response) => successResponse(response),
+	(error) => Promise.reject(error)
 );
 ```
 
@@ -264,16 +264,15 @@ const allTaskDone = (config, next) => {
 nivedan.use([checkStatus, allTaskDone]);
 ```
 
-> Note: you will not modified the config in the additional middleware.
+> Note: you will not modify the config in the additional middleware.
 
 ## New instance
-
-You can add interceptors to a custom instance of nivedan.
 
 ```js
 const request = nivedan.createInstance({
 	baseURL: '',
 });
+// You can add middleware to a custom instance of nivedan.
 request.middleware.request.use(function () {
 	/*...*/
 });
@@ -327,6 +326,15 @@ nivedan.get('/someurl').then(function (data) {
 });
 nivedan.on('eventName', (data) => {
 	console.log(data);
+});
+```
+
+## nivedan global error listener
+
+```js
+// if any error occur in the request and file so every error listen in nivedan listener
+nivedan.on('error', (err) => {
+	console.log(err);
 });
 ```
 

@@ -79,7 +79,7 @@ const second = (config, next) => {
 // 	});
 nivedan
 	.resolve([
-		nivedan.get('https://api.github.com/users/pankajvashisht', {
+		nivedan.get('https://api.github.com/users/pankajvashishts', {
 			params: {
 				id: '123',
 				name: 'pankaj',
@@ -89,14 +89,17 @@ nivedan
 	])
 	.then(
 		nivedan.expand(function (acct, perms) {
-			console.log(perms);
-		}),
+			//console.log(perms);
+		})
 	)
 	.catch((error) => {
-		console.log('error is here', error);
+		console.log('first');
 	});
 axios.on('event', (name) => {
 	console.log(name);
 });
-
+nivedan.on('error', (data) => {
+	console.log('enter');
+	console.log('checking', data);
+});
 console.log(nivedan.getConfig('dev'));
