@@ -1,6 +1,6 @@
 {
 	"name": "nivedan",
-	"version": "1.0.4",
+	"version": "1.0.6",
 	"description": "Promise based HTTP client for the browser based on the fetch api and XMLHttpRequest ",
 	"main": "index.js",
 	"directories": {
@@ -9,7 +9,6 @@
 		"test": "test"
 	},
 	"scripts": {
-		"test": "grunt test && bundlesize",
 		"build": "webpack --config webpack.prod.js",
 		"start": "webpack --config webpack.dev.js"
 	},
