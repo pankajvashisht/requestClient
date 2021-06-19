@@ -30,19 +30,19 @@ Promise based HTTP client for the browser and node.js
 Using npm:
 
 ```bash
-$ npm install nivedan
+npm install nivedan
 ```
 
 Using bower:
 
 ```bash
-$ bower install nivedan
+bower install nivedan
 ```
 
 Using yarn:
 
 ```bash
-$ yarn add nivedan
+yarn add nivedan
 ```
 
 ## Example
