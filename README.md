@@ -2,6 +2,8 @@
 
 [![npm version](https://badge.fury.io/js/codsi-client.svg)](https://badge.fury.io/js/nivedan)
 
+[![](https://img.shields.io/npm/v/nivedan.svg?style=flat)](https://www.npmjs.com/package/nivedan)
+
 Promise based HTTP client for the browser and node.js
 
 ## Features
@@ -220,7 +222,7 @@ nivedan.defaultConfig({
 
 ## Middleware
 
-You can middleware requests or responses before they are handled by `then` or `catch`.
+You can add middleware requests or responses before they are handled by `then` or `catch`.
 
 ```js
 // Request middleware
